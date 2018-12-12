@@ -1,0 +1,49 @@
+﻿@page
+@model Crud_Razor_2_1.Pages.BookList.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>
+
+    <a asp-page="./Create" class="btn btn-primary">Create new book</a>
+
+
+</h4>
+
+@if (Model.Books.Count() > 0)
+{
+  
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Books.FirstOrDefault().ISBN)
+        </th>
+    </tr>
+    @foreach (var book in Model.Books)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(m => book.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(m => book.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(m => book.ISBN)
+        </td>
+    </tr>
+    }
+</table>
+    
+}
+else
+{
+    <div>No books available</div>
+}

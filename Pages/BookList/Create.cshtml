@@ -1,0 +1,25 @@
+﻿@page
+@model Crud_Razor_2_1.Pages.Create.CreateModel
+@{
+    ViewData["Title"] = "Crate";
+}
+
+<h2>Crate</h2>
+<br />
+<form method="post" asp-page="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <label asp-for="@Model.Book.Name"></label>
+    <input asp-for="@Model.Book.Name" />
+    <span asp-validation-for="@Model.Book.Name" class="text-danger"></span>
+    <label asp-for="@Model.Book.Author"></label>
+    <input asp-for="@Model.Book.Author" />
+    <label asp-for="@Model.Book.ISBN"></label>
+    <input asp-for="@Model.Book.ISBN" />
+    <input type="submit" class="btn btn-default" value="Create Book" />
+</form>
+@section Scripts{
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+}
